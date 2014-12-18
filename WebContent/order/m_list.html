@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Basic DataGrid - jQuery EasyUI Mobile Demo</title>  
+    <link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">  
+    <link rel="stylesheet" type="text/css" href="../themes/icon.css">  
+    <script type="text/javascript" src="../jquery.min.js"></script>  
+    <script type="text/javascript" src="../jquery.easyui.min.js"></script> 
+    <script type="text/javascript" src="../lee.js"></script>
+</head>
+<body>
+    <table id="dg" title="Basic DataGrid"  class="easyui-datagrid" 
+            data-options="singleSelect:true,
+            				border:false,
+            				fit:true,
+            				fitColumns:true,
+            				url:getRootPath()+'/purchaseOrder/list.json',
+            				method:'post',
+            				rownumbers:true,
+            				scrollbarSize:0">  
+        <thead>  
+            <tr>  
+                <th data-options="field:'code',width:100">订单号</th>  
+                <th data-options="field:'customer',width:100">客户</th>  
+                <th data-options="field:'modelNo',width:80,align:'right'">型号</th>  
+                <th data-options="field:'quantity',width:80,align:'right'">数量</th>  
+            </tr>
+        </thead>  
+    </table>  
+    <script>
+        var data =     [
+            {"code":"FI-SW-01","customer":"Koi","modelNo":10.00,"quantity":"P","listprice":36.50,"attr1":"Large","itemid":"EST-1"},
+            {"code":"K9-DL-01","customer":"Dalmation","modelNo":12.00,"quantity":"P","listprice":18.50,"attr1":"Spotted Adult Female","itemid":"EST-10"},
+            {"code":"RP-SN-01","customer":"Rattlesnake","modelNo":12.00,"quantity":"P","listprice":38.50,"attr1":"Venomless","itemid":"EST-11"},
+            {"code":"RP-SN-01","customer":"Rattlesnake","modelNo":12.00,"quantity":"P","listprice":26.50,"attr1":"Rattleless","itemid":"EST-12"},
+            {"code":"RP-LI-02","customer":"Iguana","modelNo":12.00,"quantity":"P","listprice":35.50,"attr1":"Green Adult","itemid":"EST-13"},
+            {"code":"FL-DSH-01","customer":"Manx","modelNo":12.00,"quantity":"P","listprice":158.50,"attr1":"Tailless","itemid":"EST-14"},
+            {"code":"FL-DSH-01","customer":"Manx","modelNo":12.00,"quantity":"P","listprice":83.50,"attr1":"With tail","itemid":"EST-15"},
+            {"code":"FL-DLH-02","customer":"Persian","modelNo":12.00,"quantity":"P","listprice":23.50,"attr1":"Adult Female","itemid":"EST-16"},
+            {"code":"FL-DLH-02","customer":"Persian","modelNo":12.00,"quantity":"P","listprice":89.50,"attr1":"Adult Male","itemid":"EST-17"},
+            {"code":"AV-CB-01","customer":"Amazon Parrot","modelNo":92.00,"quantity":"P","listprice":63.50,"attr1":"Adult Male","itemid":"EST-18"}
+        ];
+        //$(function(){
+            //$('#dg').datagrid({
+                //data: data
+            //});
+        //});
+    </script>
+    <style scoped>
+        .panel-title{
+            text-align:center;
+            font-size:14px;
+            font-weight:bold;
+            text-shadow:0 -1px rgba(0,0,0,0.3);
+        }
+        .datagrid-row,.datagrid-header-row{
+            height:35px;
+        }
+        .datagrid-body td{  
+            border-right:1px dotted transparent;  
+            border-bottom:1px dotted transparent;  
+        }  
+    </style>
+</body>    
+</html>

@@ -1,0 +1,156 @@
+
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Basic DataGrid - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../lee.js"></script>
+	<script type="text/javascript">
+		function getPurchaseOrderCode(){
+			return getP("code")
+		}
+		
+		function back(){
+			window.location.href='list.html';
+		}
+		
+		jQuery(document).ready(
+				function() {
+					jQuery('#query').bind('click', function() {
+						//window.location.href = "testingApply_list.jsp";
+						var queryParams = $('#tt').datagrid('options').queryParams;  
+						    queryParams.who = $('#name').val();
+						    //重新加载datagrid的数据  
+					        $("#tt").datagrid('reload');  
+
+					});
+				});
+	</script>
+</head>
+<body>
+	<h2>订单详情</h2>
+	<p></p>
+	<div style="margin:20px 0;"><a href="javascript:void(0)" class="easyui-linkbutton" onclick="back()">返回</a></div>
+	<div class="easyui-panel" title="订货单详情" style="width:50%">
+		<div style="padding:10px 60px 20px 0px">
+	   
+	    	<input type="hidden" name="purchaseOrderId" id="purchaseOrderId"> 
+	    	<table cellpadding="10">
+	    		<tr>
+	    			<td>订单号:</td>
+	    			<td> <label id="code"></label></td>
+	    		</tr>
+				<tr>
+					<td>客户:</td>
+	    			<td> <label id="customer"></label></td>
+					
+	    			<td>型号:</td>
+	    			<td> <label id="modelNo"></label></td>
+
+	    		</tr>
+	    		<tr>
+					<td>数量:</td>
+	    			<td> <label id="quantity"></label></td>
+					
+	    			<td>单价::</td>
+	    			<td> <label id="price"></label></td>
+
+	    		</tr>
+	    		<tr>
+					<td>金额:</td>
+	    			<td> <label id="amount"></label></td>
+					
+	    			<td>币种:</td>
+	    			<td> <label id="currency"></label></td>
+
+	    		</tr>
+	    		<tr>
+					<td>采购单价:</td>
+	    			<td> <label id="purchasePrice"></label></td>
+					
+	    			<td>采购金额:</td>
+	    			<td> <label id="purchaseAmount"></label></td>
+
+	    		</tr>
+	    		<tr>
+					<td>费用:</td>
+	    			<td> <label id="money"></label></td>
+					
+	    			<td>利润:</td>
+	    			<td> <label id="profit"></label></td>
+
+	    		</tr>
+	    	</table>
+	    </div>
+	</div>
+	<br></br>
+	<table  id="tt"
+			class="easyui-datagrid" 
+			title="发货情况" 
+			style="width:700px;height:200px"
+			data-options="singleSelect:true,
+						collapsible:false,
+						url:getRootPath()+'/purchaseOrder/getSendGoodsInfo.json?purchaseOrderCode='+getPurchaseOrderCode(),
+						rownumbers:true,
+						method:'post'">
+		<thead>
+			<tr>
+				<th data-options="field:'sendTime',width:200">发货单号</th>
+				<th data-options="field:'sendCode',width:80">发货时间</th>
+				<th data-options="field:'remark',width:390">备注</th>
+			</tr>
+		</thead>
+	</table>
+	<br></br>
+	<table  id="tt1"
+			class="easyui-datagrid" 
+			title="收款情况" 
+			style="width:700px;height:200px"
+			data-options="singleSelect:true,
+						collapsible:false,
+						url:getRootPath()+'/purchaseOrder/getCollectionMoneyInfo.json?purchaseOrderCode='+getPurchaseOrderCode(),
+						rownumbers:true,
+						method:'post'">
+		<thead>
+			<tr>
+				<th data-options="field:'collectionTime',width:200">收款时间</th>
+				<th data-options="field:'money',width:80">收款金额</th>
+				<th data-options="field:'remark',width:390">备注</th>
+			</tr>
+		</thead>
+	</table>
+	<div style="margin:20px 0;"><a href="javascript:void(0)" class="easyui-linkbutton" onclick="back()">返回</a></div>
+</body>
+
+	<script>
+		$(document).ready(function(){
+	         $.ajax({
+	             type: "GET",
+	             url: getRootPath()+'/purchaseOrder/getPurchaseOrder.json',
+	             data: {purchaseOrderCode:getPurchaseOrderCode()},
+	             dataType: "json",
+	             success: function(data){
+	            	 if(data.code=='0'){
+	            		 $('#code').html(getP("code"));
+	            		 $('#customer').html(data.data.customer);
+	            		 $('#modelNo').html(data.data.modelNo);
+	            		 $('#quantity').html(data.data.quantity);
+	            		 $('#price').html(data.data.price);
+	            		 $('#currency').html(data.data.currency)
+	            		 $('#amount').html(data.data.amount);
+	            		 $('#purchasePrice').html(data.data.purchasePrice);
+	            		 $('#purchaseAmount').html(data.data.purchaseAmount);
+	            		 $('#money').html(data.data.money);
+	            		 $('#profit').html(data.data.profit);
+	            	 }
+	            	 
+	            	 
+	             }
+	         });
+		});
+	</script>
+</html>

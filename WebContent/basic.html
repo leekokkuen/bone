@@ -1,0 +1,58 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Basic Form - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="demo.css">
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="lee.js"></script>
+</head>
+<body style = "text-align:center">
+	<h2>登录</h2>
+	<div style="margin:0 auto;"></div>
+	<div class="easyui-panel" title="登录" style="width:400px">
+		<div style="padding:10px 60px 20px 60px">
+	    <form id="ff" method="post">
+	    	<table cellpadding="5">
+	    		<tr>
+	    			<td>账户:</td>
+	    			<td><input class="easyui-textbox" type="text" name="userName" data-options="required:true,iconCls:'icon-man',iconWidth:38""></input></td>
+	    		</tr>
+	    		<tr>
+	    			<td>密码:</td>
+	    			<td><input class="easyui-textbox" type="password"  name="password" data-options="required:true,iconCls:'icon-lock',iconWidth:38"></input></td>
+	    		</tr>
+		   	</table>
+	    </form>
+	    <div style="text-align:center;padding:5px">
+	    	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()">提交</a>
+	    	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()">清空</a>
+	    </div>
+	    </div>
+	</div>
+	<script>
+		function submitForm(){
+			$('#ff').form('submit', {
+			    url:getRootPath()+'/login/doLogin.json',
+			    onSubmit: function(){
+			        //进行表单验证
+			        //如果返回false阻止提交
+			    },
+			    success:function(data){
+			    	 var obj = $.parseJSON(data);
+			    	 if(obj.code==0){
+			    		window.location.href='order/list.html';
+			    	 }else{
+			    		 alert(obj.errorMsg);
+			    	 }
+			    }
+			});
+		}
+		function clearForm(){
+			$('#ff').form('clear');
+		}
+	</script>
+</body>
+</html>

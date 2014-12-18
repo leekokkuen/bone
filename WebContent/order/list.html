@@ -1,0 +1,85 @@
+
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Basic DataGrid - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../lee.js"></script>
+	<script type="text/javascript">
+		function test(value,rec){
+			var code = "'"+rec.code+"'";
+			return '<a href="javascript:void(0)" class="easyui-linkbutton" onclick="sendGoods('+code+')" id="td">发货</a>&nbsp;&nbsp;'+
+			'<a href="javascript:void(0)" class="easyui-linkbutton" onclick="collection('+code+')" id="td">交款</a>&nbsp;&nbsp;'+
+			'<a href="javascript:void(0)" class="easyui-linkbutton" onclick="detail('+code+')" id="td">详情</a>&nbsp;&nbsp;';
+		}
+		
+		function sendGoods(code){
+			window.location.href='sendGoods.html?code='+code;
+		}
+		
+		function collection(code){
+			window.location.href='collection.html?code='+code;
+		}
+		function detail(code){
+			window.location.href='orderDetail.html?code='+code;
+		}
+		function add(code){
+			window.location.href='orderAdd.html';
+		}
+		jQuery(document).ready(
+				function() {
+					jQuery('#query').bind('click', function() {
+						//window.location.href = "testingApply_list.jsp";
+						var queryParams = $('#tt').datagrid('options').queryParams;  
+						    queryParams.who = $('#name').val();
+						    //重新加载datagrid的数据  
+					        $("#tt").datagrid('reload');  
+
+					});
+				});
+	</script>
+</head>
+<body>
+	<h2>订单查询</h2>
+	<p></p>
+	<div style="margin:20px 0;"><a href="javascript:void(0)" class="easyui-linkbutton" onclick="add()">新增订单</a></div>
+	<div style="margin:20px 0;">
+		<table cellpadding="10">
+				<tr>
+					<td>客户名称:</td>
+	    			<td><input class="easyui-textbox" type="text" name="name" id="name"></input></td>
+					
+	    			<td>收款金额:</td>
+	    			<td><input class="easyui-textbox" type="text" name="" data-options="required:true"></input></td>
+					
+					<td><a href="javascript:;" id="query" class="easyui-linkbutton">查询</a></td>
+	    		</tr>
+	    </table>
+	</div>
+	<table  id="tt"
+			class="easyui-datagrid" 
+			title="Basic DataGrid" 
+			style="width:700px;height:250px"
+			data-options="singleSelect:true,
+						collapsible:false,
+						pagination:true,
+						pageSize:10,
+						url:getRootPath()+'/purchaseOrder/list.json',
+						rownumbers:true,
+						method:'post'">
+		<thead>
+			<tr>
+				<th data-options="field:'code',width:200">订单号</th>
+				<th data-options="field:'customer',width:80">客户</th>
+				<th data-options="field:'modelNo',width:100">型号</th>
+				<th data-options="field:'quantity',width:80,align:'right'">数量</th>
+				<th data-options="field:'itemid',width:100,align:'center',formatter:test">操作</th>
+			</tr>
+		</thead>
+	</table>
+</body>
+</html>

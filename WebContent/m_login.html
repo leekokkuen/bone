@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Basic LinkButton - jQuery EasyUI Mobile Demo</title>  
+    <link rel="stylesheet" type="text/css" href="themes/default/easyui.css">  
+    <link rel="stylesheet" type="text/css" href="themes/icon.css">  
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="lee.js"></script>
+</head>
+<body>
+    <div class="easyui-panel" title="登录" data-options="fit:true,border:false">
+        <div style="padding:0 20px">
+        	<form id="ff" method="post">
+	            <div class="m-item" style="border-bottom:1px solid #eee">
+	                <div class="m-label">账户:</div>
+	                <div><input class="m-input" name="userName" placeholder="Type username"></div>
+	            </div>
+	            <div class="m-item">
+	                <div class="m-label">密码:</div>
+	                <div><input class="m-input" type="password" name="password" placeholder="Type password"></div>
+	            </div>
+            </form>
+            <div style="text-align:center;margin-top:30px">
+                <a href="javascript:void(0)" class="easyui-linkbutton" style="width:40%" onclick="submitForm()"><span style="font-size:16px">提交</span></a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" style="width:40%" onclick="clearForm()"><span style="font-size:16px">清空</span></a> 
+            </div>
+        </div>
+    </div>
+    <script>
+		function submitForm(){
+			$('#ff').form('submit', {
+			    url:getRootPath()+'/login/doLogin.json',
+			    onSubmit: function(){
+			        //进行表单验证
+			        //如果返回false阻止提交
+			    },
+			    success:function(data){
+			    	 var obj = $.parseJSON(data);
+			    	 if(obj.code==0){
+			    		window.location.href='order/m_list.html';
+			    	 }else{
+			    		 alert(obj.errorMsg);
+			    	 }
+			    }
+			});
+		}
+		function clearForm(){
+			$('#ff').form('clear');
+		}
+	</script>
+    <style scoped>
+        .panel-title{
+            text-align:center;
+            font-size:14px;
+            font-weight:bold;
+            text-shadow:0 -1px rgba(0,0,0,0.3);
+        }
+        .m-item{
+            height:30px;
+            line-height:30px;
+            padding:10px;
+            background:#fff;
+            color:#000;
+        }
+        .m-label{
+            float:left;
+            width:100px;
+            font-size:16px;
+        }
+        .m-input{
+            height:30px;
+            line-height:30px;
+            font-size:16px;
+            border:0;
+            width:150px;
+        }
+    </style>
+</body>    
+</html>
