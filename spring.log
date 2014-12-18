@@ -1,0 +1,82 @@
+23:45:30,578 INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] Loading XML bean definitions from class path resource [applicationContext.xml]
+23:45:30,718 INFO  [org.springframework.context.annotation.ClassPathBeanDefinitionScanner] JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+23:45:30,937 INFO  [org.springframework.context.support.GenericApplicationContext] Refreshing org.springframework.context.support.GenericApplicationContext@a9ae05: startup date [Tue Dec 09 23:45:30 CST 2014]; root of context hierarchy
+23:45:31,109 INFO  [org.springframework.context.support.PropertySourcesPlaceholderConfigurer] Loading properties file from class path resource [jdbc.properties]
+23:45:31,156 INFO  [org.springframework.beans.factory.support.DefaultListableBeanFactory] Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@b33d0a: defining beans [domainObjectDao,collectionMoneyRecordDao,purchaseOrderDao,sendGoodsRecordDao,userDao,domainObjectService,collectionMoneyRecordService,purchaseOrderService,sendGoodsRecordService,userService,ajaxController,loginController,purchaseOrderController,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,idGenarater,sessionFactory,hibernateTemplate,transactionManager,org.springframework.aop.config.internalAutoProxyCreator,serviceMethod,org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0,txAdvice,org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter#0,mappingJacksonHttpMessageConverter,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; root of factory hierarchy
+23:45:31,468 INFO  [org.hibernate.annotations.common.Version] Hibernate Commons Annotations 3.2.0.Final
+23:45:31,484 INFO  [org.hibernate.cfg.Environment] Hibernate 3.6.10.Final
+23:45:31,484 INFO  [org.hibernate.cfg.Environment] hibernate.properties not found
+23:45:31,484 INFO  [org.hibernate.cfg.Environment] Bytecode provider name : javassist
+23:45:31,484 INFO  [org.hibernate.cfg.Environment] using JDK 1.4 java.sql.Timestamp handling
+23:45:31,578 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: com.bone.domain.order.CollectionMoneyRecord
+23:45:31,609 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity com.bone.domain.order.CollectionMoneyRecord on table collectionMoneyRecords
+23:45:31,640 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: com.bone.domain.order.PurchaseOrder
+23:45:31,640 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity com.bone.domain.order.PurchaseOrder on table purchaseorders
+23:45:31,640 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: com.bone.domain.order.SendGoodsRecord
+23:45:31,640 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity com.bone.domain.order.SendGoodsRecord on table sendGoodsRecords
+23:45:31,640 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: com.bone.domain.user.User
+23:45:31,640 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity com.bone.domain.user.User on table users
+23:45:31,656 INFO  [org.hibernate.cfg.Configuration] Hibernate Validator not found: ignoring
+23:45:31,656 INFO  [org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean] Building new Hibernate SessionFactory
+23:45:31,656 INFO  [org.hibernate.cfg.search.HibernateSearchEventListenerRegister] Unable to find org.hibernate.search.event.FullTextIndexEventListener on the classpath. Hibernate Search is not enabled.
+23:45:31,656 WARN  [org.hibernate.cfg.Environment] Property [hibernate.cglib.use_reflection_optimizer] has been renamed to [hibernate.bytecode.use_reflection_optimizer]; update your properties appropriately
+23:45:31,671 INFO  [org.hibernate.connection.ConnectionProviderFactory] Initializing connection provider: org.springframework.orm.hibernate3.LocalDataSourceConnectionProvider
+23:45:32,453 INFO  [org.hibernate.dialect.Dialect] Using dialect: org.hibernate.dialect.MySQLDialect
+23:45:32,484 INFO  [org.hibernate.cfg.SettingsFactory] Database ->
+       name : MySQL
+    version : 5.6.10
+      major : 5
+      minor : 6
+23:45:32,484 INFO  [org.hibernate.cfg.SettingsFactory] Driver ->
+       name : MySQL Connector Java
+    version : mysql-connector-java-5.1.25 ( Revision: ${bzr.revision-id} )
+      major : 5
+      minor : 1
+23:45:32,484 INFO  [org.hibernate.transaction.TransactionFactoryFactory] Transaction strategy: org.springframework.orm.hibernate3.SpringTransactionFactory
+23:45:32,484 INFO  [org.hibernate.transaction.TransactionManagerLookupFactory] No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended)
+23:45:32,484 INFO  [org.hibernate.cfg.SettingsFactory] Automatic flush during beforeCompletion(): disabled
+23:45:32,484 INFO  [org.hibernate.cfg.SettingsFactory] Automatic session close at end of transaction: disabled
+23:45:32,484 INFO  [org.hibernate.cfg.SettingsFactory] JDBC batch size: 15
+23:45:32,484 INFO  [org.hibernate.cfg.SettingsFactory] JDBC batch updates for versioned data: disabled
+23:45:32,484 INFO  [org.hibernate.cfg.SettingsFactory] Scrollable result sets: enabled
+23:45:32,484 INFO  [org.hibernate.cfg.SettingsFactory] JDBC3 getGeneratedKeys(): enabled
+23:45:32,484 INFO  [org.hibernate.cfg.SettingsFactory] Connection release mode: auto
+23:45:32,484 INFO  [org.hibernate.cfg.SettingsFactory] Maximum outer join fetch depth: 2
+23:45:32,484 INFO  [org.hibernate.cfg.SettingsFactory] Default batch fetch size: 1
+23:45:32,484 INFO  [org.hibernate.cfg.SettingsFactory] Generate SQL with comments: disabled
+23:45:32,484 INFO  [org.hibernate.cfg.SettingsFactory] Order SQL updates by primary key: disabled
+23:45:32,484 INFO  [org.hibernate.cfg.SettingsFactory] Order SQL inserts for batching: disabled
+23:45:32,484 INFO  [org.hibernate.cfg.SettingsFactory] Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+23:45:32,484 INFO  [org.hibernate.hql.ast.ASTQueryTranslatorFactory] Using ASTQueryTranslatorFactory
+23:45:32,484 INFO  [org.hibernate.cfg.SettingsFactory] Query language substitutions: {}
+23:45:32,484 INFO  [org.hibernate.cfg.SettingsFactory] JPA-QL strict compliance: disabled
+23:45:32,484 INFO  [org.hibernate.cfg.SettingsFactory] Second-level cache: enabled
+23:45:32,484 INFO  [org.hibernate.cfg.SettingsFactory] Query cache: disabled
+23:45:32,484 INFO  [org.hibernate.cfg.SettingsFactory] Cache region factory : org.hibernate.cache.impl.NoCachingRegionFactory
+23:45:32,484 INFO  [org.hibernate.cfg.SettingsFactory] Optimize cache for minimal puts: disabled
+23:45:32,484 INFO  [org.hibernate.cfg.SettingsFactory] Structured second-level cache entries: disabled
+23:45:32,500 INFO  [org.hibernate.cfg.SettingsFactory] Echoing all SQL to stdout
+23:45:32,500 INFO  [org.hibernate.cfg.SettingsFactory] Statistics: disabled
+23:45:32,500 INFO  [org.hibernate.cfg.SettingsFactory] Deleted entity synthetic identifier rollback: disabled
+23:45:32,500 INFO  [org.hibernate.cfg.SettingsFactory] Default entity-mode: pojo
+23:45:32,500 INFO  [org.hibernate.cfg.SettingsFactory] Named query checking : enabled
+23:45:32,500 INFO  [org.hibernate.cfg.SettingsFactory] Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+23:45:32,500 INFO  [org.hibernate.impl.SessionFactoryImpl] building session factory
+23:45:32,515 INFO  [org.hibernate.type.BasicTypeRegistry] Type registration [wrapper_materialized_blob] overrides previous : org.hibernate.type.WrappedMaterializedBlobType@1a034d
+23:45:32,515 INFO  [org.hibernate.type.BasicTypeRegistry] Type registration [materialized_blob] overrides previous : org.hibernate.type.MaterializedBlobType@1cee792
+23:45:32,515 INFO  [org.hibernate.type.BasicTypeRegistry] Type registration [materialized_clob] overrides previous : org.hibernate.type.MaterializedClobType@c5577c
+23:45:32,515 INFO  [org.hibernate.type.BasicTypeRegistry] Type registration [wrapper_characters_clob] overrides previous : org.hibernate.type.CharacterArrayClobType@1f2af1c
+23:45:32,515 INFO  [org.hibernate.type.BasicTypeRegistry] Type registration [characters_clob] overrides previous : org.hibernate.type.PrimitiveCharacterArrayClobType@1c6866d
+23:45:32,515 INFO  [org.hibernate.type.BasicTypeRegistry] Type registration [clob] overrides previous : org.hibernate.type.ClobType@a36b53
+23:45:32,515 INFO  [org.hibernate.type.BasicTypeRegistry] Type registration [java.sql.Clob] overrides previous : org.hibernate.type.ClobType@a36b53
+23:45:32,515 INFO  [org.hibernate.type.BasicTypeRegistry] Type registration [blob] overrides previous : org.hibernate.type.BlobType@db3331
+23:45:32,515 INFO  [org.hibernate.type.BasicTypeRegistry] Type registration [java.sql.Blob] overrides previous : org.hibernate.type.BlobType@db3331
+23:45:32,796 INFO  [org.hibernate.impl.SessionFactoryObjectFactory] Not binding factory to JNDI, no JNDI name configured
+23:45:32,953 INFO  [org.springframework.orm.hibernate3.HibernateTransactionManager] Using DataSource [org.logicalcobwebs.proxool.ProxoolDataSource@114d18f] of Hibernate SessionFactory for HibernateTransactionManager
+23:45:33,671 INFO  [org.logicalcobwebs.proxool.proxool.a2] Shutting down 'proxool.a2' pool immediately [Shutdown Hook]
+23:45:33,671 INFO  [org.springframework.context.support.GenericApplicationContext] Closing org.springframework.context.support.GenericApplicationContext@a9ae05: startup date [Tue Dec 09 23:45:30 CST 2014]; root of context hierarchy
+23:45:33,671 INFO  [org.springframework.beans.factory.support.DefaultListableBeanFactory] Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@b33d0a: defining beans [domainObjectDao,collectionMoneyRecordDao,purchaseOrderDao,sendGoodsRecordDao,userDao,domainObjectService,collectionMoneyRecordService,purchaseOrderService,sendGoodsRecordService,userService,ajaxController,loginController,purchaseOrderController,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,idGenarater,sessionFactory,hibernateTemplate,transactionManager,org.springframework.aop.config.internalAutoProxyCreator,serviceMethod,org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0,txAdvice,org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter#0,mappingJacksonHttpMessageConverter,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; root of factory hierarchy
+23:45:33,671 INFO  [org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean] Closing Hibernate SessionFactory
+23:45:33,671 INFO  [org.hibernate.impl.SessionFactoryImpl] closing
+23:45:33,671 INFO  [org.logicalcobwebs.proxool.PrototyperController] Stopping Prototyper thread
+23:45:33,671 INFO  [org.logicalcobwebs.proxool.HouseKeeperController] Stopping HouseKeeper thread
