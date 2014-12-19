@@ -1,4 +1,4 @@
-CREATE TABLE `idresource` (
+CREATE TABLE `idresource` (  
   `currentid` bigint(20) NOT NULL,
   PRIMARY KEY (`currentid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
