@@ -31,14 +31,35 @@
 			return new Date(); 
 		}  
     }  
-
+	
+    function getPurchaseOrderCode(){
+		return getP("code")
+	}
  </script> 
 </head>
 <body>
-	<h2>发货</h2>
-	<p>Fill the form and submit it.</p>
+	<h2>填写发货记录</h2>
+	<p></p>
 	<div style="margin:20px 0;"></div>
-	<div class="easyui-panel" title="New Topic" style="width:50%">
+	<table  id="tt"
+			class="easyui-datagrid" 
+			title="发货情况" 
+			style="width:700px;height:200px"
+			fitColumns="true"
+			data-options="singleSelect:true,
+						collapsible:false,
+						url:getRootPath()+'/purchaseOrder/getSendGoodsInfo.json?purchaseOrderCode='+getPurchaseOrderCode(),
+						rownumbers:true,
+						method:'post'">
+		<thead>
+			<tr>
+				<th data-options="field:'sendTime',width:200">发货单号</th>
+				<th data-options="field:'sendCode',width:150">发货时间</th>
+				<th data-options="field:'remark',width:390">备注</th>
+			</tr>
+		</thead>
+	</table>
+	<div class="easyui-panel" title="填写发货记录" style="width:700px">
 		<div style="padding:10px 60px 20px 0px">
 	    <form id="ff" method="post">
 	    	<input type="hidden" name="purchaseOrderId" id="purchaseOrderId"> 
@@ -57,7 +78,10 @@
 	    		</tr>
 				<tr>
 	    			<td>备注:</td>
-	    			<td><input class="easyui-textbox" name="remark" data-options="multiline:true" style="height:60px"></input></td>
+	    			<td colspan="2">
+	    				<input class="easyui-textbox" name="remark" data-options="multiline:true" style="height:60px">
+	    				</input>
+	    			</td>
 	    		</tr>
 				
 				<!--
@@ -79,8 +103,8 @@
 	    	</table>
 	    </form>
 	    <div style="text-align:center;padding:5px">
-	    	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()">Submit</a>
-	    	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()">Clear</a>
+	    	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()">提交</a>
+	    	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()">重置</a>
 	    </div>
 	    </div>
 	</div>
@@ -105,7 +129,7 @@
 		}
 		//document.getElementById("code").innerHTML = getP("code");; 
 		$('#code').html(getP("code"));
-		$('#purchaseOrderId').val(getP("code"));
+		$('#purchaseOrderId').val(getPurchaseOrderCode());
 		//$('#code').textbox('disable');
 	</script>
 </body>

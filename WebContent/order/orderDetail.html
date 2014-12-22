@@ -94,12 +94,13 @@
 			style="width:700px;height:200px"
 			data-options="singleSelect:true,
 						collapsible:false,
+						loadMsg:'加载中...',
 						url:getRootPath()+'/purchaseOrder/getSendGoodsInfo.json?purchaseOrderCode='+getPurchaseOrderCode(),
 						rownumbers:true,
 						method:'post'">
 		<thead>
 			<tr>
-				<th data-options="field:'sendTime',width:200">发货单号</th>
+				<th data-options="field:'sendTime',width:200"">发货单号</th>
 				<th data-options="field:'sendCode',width:80">发货时间</th>
 				<th data-options="field:'remark',width:390">备注</th>
 			</tr>
@@ -112,6 +113,7 @@
 			style="width:700px;height:200px"
 			data-options="singleSelect:true,
 						collapsible:false,
+						loadMsg:'加载中...',
 						url:getRootPath()+'/purchaseOrder/getCollectionMoneyInfo.json?purchaseOrderCode='+getPurchaseOrderCode(),
 						rownumbers:true,
 						method:'post'">
